@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.mkl.home.entity.Member;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-	public List<Member> findByMemmbername(String name);
+	public List<Member> findByMembername(String name);
 	//SELECT * FROM jpa_board WHERE membername=#{param1}
 	
 	public List<Member> findAllByOrderByMembernumDesc();//회원번호의 내림차순 정렬

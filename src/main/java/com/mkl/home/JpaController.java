@@ -1,6 +1,5 @@
 package com.mkl.home;
 
-import java.lang.reflect.Member;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class JpaController {
 	@RequestMapping("/memberlist")
 	public String memberlist(Model model) {
 		
-		List<Member> members = memberRepository.findAll();
+		List<Member> members = memberRepository.findAll();		
 		
 		model.addAttribute("memberlist", members);
 		
@@ -50,7 +49,7 @@ public class JpaController {
 		member.setMemberid(mid);
 		member.setMemberpw(mpw);
 		member.setMembername(mname);
-		member.setMemberid(mage);
+		member.setMemberage(mage);
 		
 		memberRepository.save(member);
 		
@@ -61,7 +60,7 @@ public class JpaController {
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request) {
 		
-		Long mid = Long.parseLong(request.getParameter("membernum)"));
+		Long mid = Long.parseLong(request.getParameter("membernum"));
 		
 		memberRepository.deleteById(mid);
 		
